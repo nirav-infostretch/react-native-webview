@@ -64,6 +64,7 @@ import com.reactnativecommunity.webview.events.TopLoadingProgressEvent;
 import com.reactnativecommunity.webview.events.TopLoadingStartEvent;
 import com.reactnativecommunity.webview.events.TopMessageEvent;
 import com.reactnativecommunity.webview.events.TopShouldStartLoadWithRequestEvent;
+import com.urbanairship.webkit.AirshipWebViewClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -709,7 +710,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     }
   }
 
-  protected static class RNCWebViewClient extends WebViewClient {
+  protected static class RNCWebViewClient extends AirshipWebViewClient {
 
     protected boolean mLastLoadFailed = false;
     protected @Nullable
@@ -740,6 +741,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
           createWebViewEvent(webView, url)));
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
       activeUrl = url;

@@ -120,9 +120,11 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion')
+def UA_version = getExtOrDefault('UA_version')
 
 dependencies {
   //noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation "com.urbanairship.android:urbanairship-core:$UA_version"
 }
